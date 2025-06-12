@@ -1,0 +1,33 @@
+[project]
+name = "uv-sample-test-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.1.0",
+]
+
+[project.optional-dependencies]
+excel = [
+    "openpyxl>=3.1.5",
+    "xlsxwriter>=3.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+]
+sample = [
+    "torch>=2.7.0",
+]
+
+[tool.uv]
+default-groups = [ "dev","sample"]
+managed = true
+
+[tool.uv.workspace]
+members = [
+    "sample-project",
+    "sample-project2",
+]
